@@ -32,7 +32,7 @@ export async function getListOfUsersWithDelayAndResponseTime(delay: number): Pro
 export async function getSingleUsers(numberOfUsers: number): Promise<AxiosResponse<SingleUser>[]> {
     let singleUsersRequests = new Array();
     for(let i = 0; i < numberOfUsers; i++) {
-        singleUsersRequests[i] = reqresUserService.getSingleUser(i + 1);
+        singleUsersRequests.push(reqresUserService.getSingleUser(i + 1));
     }
     return Promise.all(singleUsersRequests);
 } 
